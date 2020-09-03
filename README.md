@@ -1,3 +1,11 @@
+## Deploys :D
+
+This project is available in heroku and Azure (And supports Offline Mode!!! :D)
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://ieti-taskplanner-marcelo.herokuapp.com/)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://lab3ieti.z21.web.core.windows.net/) 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

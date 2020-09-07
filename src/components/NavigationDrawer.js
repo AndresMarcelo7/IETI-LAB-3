@@ -19,6 +19,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import PersonIcon from '@material-ui/icons/Person';
 import {TodoApp} from './TodoApp';
+import { Redirect} from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -82,12 +83,16 @@ const useStyles =theme => ({
 class NavigationDrawer extends React.Component{
     constructor(props) {
         super(props);
-        this.state={open : false}
+        this.state={open : false,userProfile:false}
         this.handleDrawer=this.handleDrawer.bind(this)
     }
     render(){
         const { classes } = this.props;
+        if(this.state.userProfile){
+          return<Redirect to={'/userprofile'} />
+      }  
         return (
+          
             <div className={classes.root}>
             <CssBaseline />
             <AppBar
@@ -128,7 +133,7 @@ class NavigationDrawer extends React.Component{
               </div>
               <Divider />
               <List>
-                <ListItem>
+                <ListItem button key={"Update"} onClick={()=>{this.setState({userProfile:true})}}>
                   <ListItemIcon>
                     <PersonIcon fontSize="large"/>
                     <ListItemText primary={localStorage.getItem("name")} secondary={localStorage.getItem("email")}>
@@ -141,7 +146,7 @@ class NavigationDrawer extends React.Component{
             {/* Contenido de la pagina*/}
         <main className={clsx(classes.content, {[classes.contentShift]: this.state.open,})}>
             <div className={classes.drawerHeader} />
-            <TodoApp/>
+            {this.props.component}
 
         </main>
             </div>

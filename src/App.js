@@ -6,6 +6,7 @@ import {Login} from './components/Login'
 import NavigationDrawer from './components/NavigationDrawer'
 import NewTask from './components/NewTask'
 import { UserProfile } from './components/UserProfile';
+import FilterModal from './components/FilterModal';
 // import DrawerLeft from './components/DrawerLeft'
 
 //localStorage.getItem("isLogged")==="true"?<DrawerLeft main={<TodoApp/>}/>:<Login/>
@@ -33,6 +34,7 @@ export class App extends Component {
                     <Route path="/todo" component={() => localStorage.getItem("isLogged")==="true"?<NavigationDrawer component={<TodoApp items={todos}/>}/>:<Login/>}/>
                     <Route path="/NewTask" render={()=>localStorage.getItem("isLogged")==="true"?<NavigationDrawer component={<NewTask submit={this.submitTodo}/>}/>:<Login/>}/>
                     <Route path="/userProfile" component={() => localStorage.getItem("isLogged")==="true"?<NavigationDrawer component={<UserProfile/>}/>:<Login/>}/>
+                    <Route path="/caca" component={() => localStorage.getItem("isLogged")==="true"?<FilterModal/>:<Login/>}/>
                     </Switch>
                 
             </div>

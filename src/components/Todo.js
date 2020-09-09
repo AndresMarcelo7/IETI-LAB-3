@@ -41,7 +41,7 @@ export class Todo extends React.Component {
                 style={classes.title}
                 gutterBottom
               >
-                {this.props.status +" - " + this.props.dueDate.getDate() + "-" + this.props.dueDate.getMonth()+ "-"+ this.props.dueDate.getYear()} 
+                {this.props.status +" - " + this.props.dueDate} 
               </Typography>
               <Typography  variant="h6" component="h2">
               {this.props.responsible.name}

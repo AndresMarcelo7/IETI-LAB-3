@@ -6,6 +6,12 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import { InputLabel,Button, TextField,Select, FormControl } from '@material-ui/core';
 import { Fab } from "@material-ui/core";
 import moment from "moment";
+import "react-datepicker/dist/react-datepicker.css";
+import DateFnsUtils from "@date-io/date-fns";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+} from "@material-ui/pickers";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -97,12 +103,13 @@ class FilterModal extends React.Component {
                 <InputLabel htmlFor="due-date">
                     Due-date:
                 </InputLabel>
-                <TextField
-                    id="due-date"
-                    type="date"
-                    onChange={this.handleDateChange}
-                    defaultValue={this.state.date!=""?this.state.date.format('YYYY-MM-DD'):""}
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <KeyboardDatePicker
+                  value={this.state.date!=""?this.state.date:""}
+                  onChange={this.handleDateChange}
+                  format="dd/MM/yyyy"
                 />
+              </MuiPickersUtilsProvider>
                 <br/>
                 <br/>
                 <Button onClick={()=>{this.handleSubmit(); this.handleClose();}}
@@ -130,15 +137,16 @@ class FilterModal extends React.Component {
     // Multiple events(2 inputs) in one function
     const value = e.target.value;
     this.setState({[e.target.name]: value});
+    this.props.handleFilters("","",""); //Reset Filters
   }
   handleDateChange(e) {
     this.setState({
-        date: moment(e.target.value,'YYYY-MM-DD')
+        date: new Date(e)
     });
 }
 handleSubmit(e){
     console.log(this.state)
-    console.log("coñazo")
+    console.log("DATEEEE" + this.state.date);
     this.props.handleFilters(this.state.date,this.state.responsible,this.state.status);
 }
 

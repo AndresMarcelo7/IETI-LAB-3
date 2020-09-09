@@ -106,7 +106,7 @@ export class TodoApp extends Component {
     const options = {year: 'numeric', month: 'numeric', day: 'numeric' };
     console.log(date);
     this.setState({
-      dueDate: new Date(date).toLocaleDateString("en-US",options),
+      dueDate: new Date(date),
     });
   }
 

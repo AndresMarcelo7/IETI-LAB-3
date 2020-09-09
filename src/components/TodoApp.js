@@ -22,11 +22,9 @@ export class TodoApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirect: false,
-      open: false,
-      dateFilter: "",
-      responsibleFilter: "",
-      statusFilter: "",
+      dateF: "",
+      responsibleF: "",
+      statusF: "",
     };
     this.handleFilter = this.handleFilter.bind(this);
   }
@@ -50,30 +48,28 @@ export class TodoApp extends Component {
 
   handleFilter(date, responsible, status) {
     this.setState({
-      dateFilter: date,
-      responsibleFilter: responsible,
-      statusFilter: status,
-      open: false,
+      dateF: date,
+      responsibleF: responsible,
+      statusF: status,
     });
-    console.log("Im here bitch" + date);
   }
 
   filterList(list) {
-    let filteredList = list;
+    let filtered = list;
 
-    if (this.state.statusFilter != "") {
-      filteredList = filteredList.filter((todo) => todo.status === this.state.statusFilter
+    if (this.state.statusF != "") {
+      filtered = filtered.filter((todo) => todo.status === this.state.statusF
       );
     }
-    if (this.state.responsibleFilter != "") {
-      filteredList = filteredList.filter((todo) => todo.responsible.name === this.state.responsibleFilter
+    if (this.state.responsibleF != "") {
+      filtered = filtered.filter((todo) => todo.responsible.name === this.state.responsibleF
       );
     }
-    if (this.state.dateFilter != "") {
-      filteredList = filteredList.filter((todo) => moment(todo.dueDate).format("dd-MM-yyyy") === moment(this.state.dateFilter).format("dd-MM-yyyy")
+    if (this.state.dateF != "") {
+      filtered = filtered.filter((todo) => moment(todo.dueDate).format("dd-MM-yyyy") === moment(this.state.dateF).format("dd-MM-yyyy")
       );
     }
-    return filteredList;
+    return filtered;
   }
 }
 

@@ -75,7 +75,7 @@ class FilterModal extends React.Component {
           
               <div style={getModalStyle()} className={classes.paper}>
               <form  onSubmit={this.handleSubmit}>
-                <h3>TASK FILTERS</h3>
+                <h3>Filter Tool</h3>
 
                 <TextField
                     id="responsible"

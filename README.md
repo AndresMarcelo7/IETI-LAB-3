@@ -2,6 +2,7 @@
 
 This project is available in heroku and Azure (And supports Offline Mode!!! :D)
 
+[Enlace a FIREBASE](https://task-planner-app-e1497.web.app) (LAB 5)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://ieti-taskplanner-marcelo.herokuapp.com/)
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://lab3ieti.z21.web.core.windows.net/) 
 

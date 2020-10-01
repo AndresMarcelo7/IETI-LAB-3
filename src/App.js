@@ -7,6 +7,7 @@ import NavigationDrawer from './components/NavigationDrawer'
 import NewTask from './components/NewTask'
 import { UserProfile } from './components/UserProfile';
 import FilterModal from './components/FilterModal';
+import ApiUsers from './components/ApiUsers';
 // import DrawerLeft from './components/DrawerLeft'
 
 //localStorage.getItem("isLogged")==="true"?<DrawerLeft main={<TodoApp/>}/>:<Login/>
@@ -35,6 +36,8 @@ export class App extends Component {
                     <Route path="/NewTask" render={()=>localStorage.getItem("isLogged")==="true"?<NavigationDrawer component={<NewTask submit={this.submitTodo}/>}/>:<Login/>}/>
                     <Route path="/userProfile" component={() => localStorage.getItem("isLogged")==="true"?<NavigationDrawer component={<UserProfile/>}/>:<Login/>}/>
                     <Route path="/caca" component={() => localStorage.getItem("isLogged")==="true"?<FilterModal/>:<Login/>}/>
+                    <Route exact path="/api" component={() =><ApiUsers/>}/>
+                    
                     </Switch>
                 
             </div>
